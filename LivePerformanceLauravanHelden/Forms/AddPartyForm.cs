@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LivePerformanceLauravanHelden
 {
-    public partial class Form1 : Form
+    public partial class AddPartyForm : Form
     {
-        public Form1()
+        public AddPartyForm()
         {
             InitializeComponent();
         }
