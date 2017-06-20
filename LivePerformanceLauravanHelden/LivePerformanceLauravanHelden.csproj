@@ -60,6 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Contexts\CoalitionContext.cs" />
+    <Compile Include="DAL\Contexts\ElectionContext.cs" />
+    <Compile Include="DAL\Contexts\IContext.cs" />
+    <Compile Include="DAL\Contexts\PartyContext.cs" />
+    <Compile Include="DAL\Contexts\ResultsContext.cs" />
+    <Compile Include="DAL\DatabaseConnection\IDatabaseConnector.cs" />
+    <Compile Include="DAL\DatabaseConnection\SQLServerConnector.cs" />
+    <Compile Include="DAL\Repositories\CoalitionRepository.cs" />
+    <Compile Include="DAL\Repositories\ElectionRepository.cs" />
+    <Compile Include="DAL\Repositories\IRepository.cs" />
+    <Compile Include="DAL\Repositories\PartyRepository.cs" />
+    <Compile Include="DAL\Repositories\ResultsRepository.cs" />
     <Compile Include="Forms\AddPartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LivePerformanceDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\Coalition.cs" />
+    <Compile Include="Models\Election.cs" />
+    <Compile Include="Models\Party.cs" />
+    <Compile Include="Models\Results.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\ResultsForm.cs">
@@ -157,5 +173,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
