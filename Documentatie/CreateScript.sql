@@ -1,3 +1,5 @@
+USE dbi337797;
+
 CREATE TABLE Partij(
 ID int PRIMARY KEY,
 Naam nvarchar(255) NOT NULL,

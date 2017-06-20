@@ -22,4 +22,5 @@ DECLARE @cursor AS CURSOR;
 END;
 GO
 
-CREATE PROCEDURE BerekenAantalZetels
+CREATE PROCEDURE BerekenAantalZetels AS
+DECLARE

@@ -11,7 +11,7 @@ namespace LivePerformanceLauravanHelden.DAL.DatabaseConnection
 
     public class SQLServerConnector : IDatabaseConnector
     {
-        SqlConnection _connection = new SqlConnection("user id=User;server=DESKTOP-E33041D\\SQLEXPRESS;Trusted_Connection=yes;database=WoDDatabase;connection timeout=60");
+        SqlConnection _connection = new SqlConnection("Server=mssql.fhict.local;Database=dbi337797;User Id=dbi337797;Password=LivePerformanceVJ2017;");
 
         public IDbCommand CreateCommand()
         {
