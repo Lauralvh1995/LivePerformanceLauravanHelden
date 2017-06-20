@@ -42,12 +42,13 @@
             this.cLBParties = new System.Windows.Forms.CheckedListBox();
             this.btEditParty = new System.Windows.Forms.Button();
             this.btNewResults = new System.Windows.Forms.Button();
+            this.btEditResults = new System.Windows.Forms.Button();
             this.gbParties.SuspendLayout();
             this.SuspendLayout();
             // 
             // btAddParty
             // 
-            this.btAddParty.Location = new System.Drawing.Point(575, 88);
+            this.btAddParty.Location = new System.Drawing.Point(575, 154);
             this.btAddParty.Name = "btAddParty";
             this.btAddParty.Size = new System.Drawing.Size(126, 57);
             this.btAddParty.TabIndex = 0;
@@ -178,7 +179,7 @@
             // 
             // btEditParty
             // 
-            this.btEditParty.Location = new System.Drawing.Point(575, 151);
+            this.btEditParty.Location = new System.Drawing.Point(575, 217);
             this.btEditParty.Name = "btEditParty";
             this.btEditParty.Size = new System.Drawing.Size(126, 57);
             this.btEditParty.TabIndex = 2;
@@ -194,11 +195,21 @@
             this.btNewResults.Text = "Nieuwe Uitslag";
             this.btNewResults.UseVisualStyleBackColor = true;
             // 
+            // btEditResults
+            // 
+            this.btEditResults.Location = new System.Drawing.Point(575, 75);
+            this.btEditResults.Name = "btEditResults";
+            this.btEditResults.Size = new System.Drawing.Size(126, 57);
+            this.btEditResults.TabIndex = 4;
+            this.btEditResults.Text = "Uitslag Wijzigen";
+            this.btEditResults.UseVisualStyleBackColor = true;
+            // 
             // FormationTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 432);
+            this.Controls.Add(this.btEditResults);
             this.Controls.Add(this.btNewResults);
             this.Controls.Add(this.btEditParty);
             this.Controls.Add(this.gbParties);
@@ -227,6 +238,7 @@
         private System.Windows.Forms.Label lbMajority;
         private System.Windows.Forms.Label lbVotes;
         private System.Windows.Forms.Button btNewResults;
+        private System.Windows.Forms.Button btEditResults;
     }
 }
 
