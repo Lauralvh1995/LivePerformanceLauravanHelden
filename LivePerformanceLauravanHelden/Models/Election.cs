@@ -11,6 +11,7 @@ namespace LivePerformanceLauravanHelden.Models
         public string Name { get; set; }
         public int Seats { get; set; }
         public int Majority { get; set; }
+        private List<Results> ElectionResults = new List<Results>();
 
         public Election(string name, int seats)
         {
