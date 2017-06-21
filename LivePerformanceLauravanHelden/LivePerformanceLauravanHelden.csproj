@@ -97,11 +97,11 @@
     <Compile Include="Forms\FormationTool.Designer.cs">
       <DependentUpon>FormationTool.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Overview.cs">
+    <Compile Include="Forms\OverviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Overview.Designer.cs">
-      <DependentUpon>Overview.cs</DependentUpon>
+    <Compile Include="Forms\OverviewForm.Designer.cs">
+      <DependentUpon>OverviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LivePerformanceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,8 +126,8 @@
     <EmbeddedResource Include="Forms\FormationTool.resx">
       <DependentUpon>FormationTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Overview.resx">
-      <DependentUpon>Overview.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OverviewForm.resx">
+      <DependentUpon>OverviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

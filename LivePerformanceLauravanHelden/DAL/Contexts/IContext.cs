@@ -9,7 +9,7 @@ namespace LivePerformanceLauravanHelden.DAL.Contexts
     interface IContext<T>
     {
         void Add(T t);
-        List<T> Read(int userid);
+        List<T> Read();
         void Update(T t);
         void Delete(T t);
     }

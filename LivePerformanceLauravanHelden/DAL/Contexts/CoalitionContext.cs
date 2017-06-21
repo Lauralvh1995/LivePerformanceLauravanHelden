@@ -11,11 +11,15 @@ namespace LivePerformanceLauravanHelden.DAL.Contexts
 {
     public class CoalitionContext : IContext<Coalition>
     {
+
+
         private readonly IDatabaseConnector _connector;
+
 
         public CoalitionContext(IDatabaseConnector connector)
         {
             _connector = connector;
+
         }
 
         public void Add(Coalition t)
@@ -44,7 +48,7 @@ namespace LivePerformanceLauravanHelden.DAL.Contexts
             _connector.ExecuteNonQuery(command);
         }
 
-        public List<Coalition> Read(int userid)
+        public List<Coalition> Read()
         {
             throw new NotImplementedException();
         }

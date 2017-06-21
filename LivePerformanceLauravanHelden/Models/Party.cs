@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LivePerformanceLauravanHelden.Models
 {
-    public class Party
+    public class Party : IComparable
     {
         public string Name { get; set; }
         public string PartyLeader { get; set; }
@@ -25,6 +25,11 @@ namespace LivePerformanceLauravanHelden.Models
         public void SetInPower(bool power)
         {
             InPower = power;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Seats.CompareTo(obj);
         }
     }
 }

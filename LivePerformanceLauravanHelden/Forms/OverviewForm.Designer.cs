@@ -1,6 +1,6 @@
 ﻿namespace LivePerformanceLauravanHelden.Forms
 {
-    partial class Overview
+    partial class OverviewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -70,6 +70,7 @@
             this.btExport.TabIndex = 3;
             this.btExport.Text = "Exporteer Coalitie";
             this.btExport.UseVisualStyleBackColor = true;
+            this.btExport.Click += new System.EventHandler(this.btExport_Click);
             // 
             // lbPrimeMinister
             // 
@@ -97,8 +98,9 @@
             this.btSaveCoalition.TabIndex = 6;
             this.btSaveCoalition.Text = "Coalitie Opslaan";
             this.btSaveCoalition.UseVisualStyleBackColor = true;
+            this.btSaveCoalition.Click += new System.EventHandler(this.btSaveCoalition_Click);
             // 
-            // Overview
+            // OverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +112,7 @@
             this.Controls.Add(this.tbCoalitionName);
             this.Controls.Add(this.lbCoalitionName);
             this.Controls.Add(this.pbCoalition);
-            this.Name = "Overview";
+            this.Name = "OverviewForm";
             this.Text = "Overzicht";
             ((System.ComponentModel.ISupportInitialize)(this.pbCoalition)).EndInit();
             this.ResumeLayout(false);

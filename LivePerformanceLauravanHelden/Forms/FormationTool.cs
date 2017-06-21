@@ -1,4 +1,5 @@
-﻿using LivePerformanceLauravanHelden.Models;
+﻿using LivePerformanceLauravanHelden.Forms;
+using LivePerformanceLauravanHelden.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace LivePerformanceLauravanHelden
 
         private void btCreateFormation_Click(object sender, EventArgs e)
         {
-
+            OverviewForm overview = new OverviewForm(coalition);
         }
 
         private void btResults_Click(object sender, EventArgs e)
@@ -178,7 +179,5 @@ namespace LivePerformanceLauravanHelden
                 cLBParties.Items.Add(s);
             }
         }
-
-
     }
 }

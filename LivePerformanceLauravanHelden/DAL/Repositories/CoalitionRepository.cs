@@ -1,4 +1,5 @@
-﻿using LivePerformanceLauravanHelden.Models;
+﻿using LivePerformanceLauravanHelden.DAL.Contexts;
+using LivePerformanceLauravanHelden.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,34 @@ namespace LivePerformanceLauravanHelden.DAL.Repositories
 {
     public class CoalitionRepository : IRepository<Coalition>
     {
+        public List<Coalition> Items { get; private set; }
+        private readonly IContext<Coalition> _context;
+
+        public CoalitionRepository(IDatabaseConnector connector)
+        {
+            _context = new CoalitionContext(connector);
+            Items = new List<Coalition>();
+        }
         public void Add(Coalition t)
         {
-            throw new NotImplementedException();
+            _context.Add(t);
+            Items.Add(t);
         }
 
         public void Delete(Coalition t)
         {
-            throw new NotImplementedException();
+            _context.Delete(t);
+            Items.Remove(t);
         }
 
         public void Refresh()
         {
-            throw new NotImplementedException();
+            _context.Read();
         }
 
         public void Update(Coalition t)
         {
-            throw new NotImplementedException();
+            _context.Update(t);
         }
     }
 }

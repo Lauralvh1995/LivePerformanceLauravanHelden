@@ -1,4 +1,5 @@
-﻿using LivePerformanceLauravanHelden.Models;
+﻿using LivePerformanceLauravanHelden.DAL.Contexts;
+using LivePerformanceLauravanHelden.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,34 @@ namespace LivePerformanceLauravanHelden.DAL.Repositories
 {
     public class ElectionRepository : IRepository<Election>
     {
+        public List<Election> Items { get; private set; }
+        private readonly IContext<Election> _context;
+
+        public ElectionRepository(IDatabaseConnector connector)
+        {
+            _context = new ElectionContext(connector);
+            Items = new List<Election>();
+        }
         public void Add(Election t)
         {
-            throw new NotImplementedException();
+            _context.Add(t);
+            Items.Add(t);
         }
 
         public void Delete(Election t)
         {
-            throw new NotImplementedException();
+            _context.Delete(t);
+            Items.Remove(t);
         }
 
         public void Refresh()
         {
-            throw new NotImplementedException();
+            _context.Read();
         }
 
         public void Update(Election t)
         {
-            throw new NotImplementedException();
+            _context.Update(t);
         }
     }
 }
