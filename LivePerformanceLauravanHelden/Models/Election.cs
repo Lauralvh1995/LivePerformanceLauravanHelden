@@ -8,5 +8,21 @@ namespace LivePerformanceLauravanHelden.Models
 {
     public class Election
     {
+        public string Name { get; set; }
+        public int Seats { get; set; }
+        public int Majority { get; set; }
+
+        public Election(string name, int seats)
+        {
+            Name = name;
+            Seats = seats;
+            Majority = CalculateMajority(Seats);
+        }
+
+        private int CalculateMajority(int seats)
+        {
+            int i = seats/2+1;
+            return i;
+        }
     }
 }
