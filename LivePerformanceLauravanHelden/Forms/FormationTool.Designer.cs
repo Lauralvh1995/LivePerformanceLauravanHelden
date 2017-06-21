@@ -54,6 +54,7 @@
             this.btAddParty.TabIndex = 0;
             this.btAddParty.Text = "Partij Toevoegen";
             this.btAddParty.UseVisualStyleBackColor = true;
+            this.btAddParty.Click += new System.EventHandler(this.btAddParty_Click);
             // 
             // gbParties
             // 
@@ -136,6 +137,7 @@
             this.btCreateFormation.TabIndex = 3;
             this.btCreateFormation.Text = "Creëer Formatie";
             this.btCreateFormation.UseVisualStyleBackColor = true;
+            this.btCreateFormation.Click += new System.EventHandler(this.btCreateFormation_Click);
             // 
             // lbAmSeats
             // 
@@ -157,25 +159,13 @@
             // 
             // cLBParties
             // 
+            this.cLBParties.CheckOnClick = true;
             this.cLBParties.FormattingEnabled = true;
-            this.cLBParties.Items.AddRange(new object[] {
-            "VVD \tMark Rutte\t\t\t2.238.351\t\t33",
-            "PVV \tGeert Wilders\t\t\t1.372.941\t\t20",
-            "CDA \tSybrand van Haersma Buma\t1.301.796\t\t19",
-            "D66 \tAlexander Pechtold\t\t1.285.819\t\t19",
-            "GL \tJesse Klaver\t\t\t959.600\t\t\t14",
-            "SP \tEmile Roemer\t\t\t955.633\t\t\t14",
-            "PvdA \tLodewijk Asscher\t\t599.699\t\t\t9",
-            "CU \tGert-Jan Segers\t\t\t356.271\t\t\t5",
-            "PvdD \tMarianne Thieme\t\t335.214\t\t\t5",
-            "50Plus \tHenk Krol\t\t\t327.131\t\t\t4",
-            "SGP \tKees van der Staaij\t\t218.950\t\t\t3",
-            "DENK \tTunahan Kuzu\t\t\t216.147\t\t\t3",
-            "FvD \tThierry Baudet\t\t\t187.162\t\t\t2"});
             this.cLBParties.Location = new System.Drawing.Point(7, 56);
             this.cLBParties.Name = "cLBParties";
             this.cLBParties.Size = new System.Drawing.Size(526, 293);
             this.cLBParties.TabIndex = 0;
+            this.cLBParties.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cLBParties_ItemCheck);
             // 
             // btEditParty
             // 
@@ -185,6 +175,7 @@
             this.btEditParty.TabIndex = 2;
             this.btEditParty.Text = "Partij Wijzigen";
             this.btEditParty.UseVisualStyleBackColor = true;
+            this.btEditParty.Click += new System.EventHandler(this.btEditParty_Click);
             // 
             // btNewResults
             // 
@@ -194,6 +185,7 @@
             this.btNewResults.TabIndex = 3;
             this.btNewResults.Text = "Nieuwe Uitslag";
             this.btNewResults.UseVisualStyleBackColor = true;
+            this.btNewResults.Click += new System.EventHandler(this.btNewResults_Click);
             // 
             // btEditResults
             // 
@@ -203,6 +195,7 @@
             this.btEditResults.TabIndex = 4;
             this.btEditResults.Text = "Uitslag Wijzigen";
             this.btEditResults.UseVisualStyleBackColor = true;
+            this.btEditResults.Click += new System.EventHandler(this.btEditResults_Click);
             // 
             // FormationTool
             // 

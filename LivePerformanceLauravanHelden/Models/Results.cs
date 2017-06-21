@@ -12,7 +12,7 @@ namespace LivePerformanceLauravanHelden.Models
 
         private int TotalVotes;
         private Election Election { get; set; }
-        private List<Party> ParticipatingParties = new List<Party>();
+        public List<Party> ParticipatingParties = new List<Party>();
 
         public Results(string name, Election election)
         {

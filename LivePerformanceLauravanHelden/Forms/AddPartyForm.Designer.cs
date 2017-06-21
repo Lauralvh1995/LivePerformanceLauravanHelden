@@ -94,6 +94,7 @@
             this.btSend.TabIndex = 6;
             this.btSend.Text = "Verzend";
             this.btSend.UseVisualStyleBackColor = true;
+            this.btSend.Click += new System.EventHandler(this.btSend_Click);
             // 
             // AddPartyForm
             // 

@@ -13,7 +13,7 @@ namespace LivePerformanceLauravanHelden.Models
         public int Seats { get; set; }
         public bool InPower { get; set; }
 
-        private List<Party> CoalitionParties = new List<Party>();
+        public List<Party> CoalitionParties = new List<Party>();
 
         public Coalition(string primeMinister, string name)
         {

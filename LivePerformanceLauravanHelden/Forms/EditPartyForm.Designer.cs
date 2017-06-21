@@ -46,6 +46,7 @@
             this.btSend.TabIndex = 13;
             this.btSend.Text = "Verzend";
             this.btSend.UseVisualStyleBackColor = true;
+            this.btSend.Click += new System.EventHandler(this.btSend_Click);
             // 
             // nudAmMembers
             // 
