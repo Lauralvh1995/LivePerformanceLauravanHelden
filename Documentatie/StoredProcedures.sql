@@ -22,5 +22,34 @@ DECLARE @cursor AS CURSOR;
 END;
 GO
 
-CREATE PROCEDURE BerekenAantalZetels AS
-DECLARE
+CREATE PROCEDURE VoerPartijToeAanCoalitie(
+@coalitienaam  nvarchar,
+@partijnaam  nvarchar)
+AS
+BEGIN
+DECLARE @coalitieID AS int;
+DECLARE @partijID AS int;
+	SET @coalitieID = (SELECT Coalitie.ID
+						FROM Coalitie
+						WHERE Coalitie.Naam = @coalitienaam);
+	SET @partijID =(SELECT @partijID
+					FROM Partij
+					WHERE Partij.Naam = @partijnaam);
+	INSERT INTO CoalitiePartij (CoalitieID, PartijID) VALUES (@coalitieID, @partijID);
+END;
+
+CREATE PROCEDURE VerwijderPartijUitCoalitie(
+@coalitienaam  nvarchar,
+@partijnaam  nvarchar)
+AS
+BEGIN
+DECLARE @coalitieID AS int;
+DECLARE @partijID AS int;
+	SET @coalitieID = (SELECT Coalitie.ID
+						FROM Coalitie
+						WHERE Coalitie.Naam = @coalitienaam);
+	SET @partijID =(SELECT @partijID
+					FROM Partij
+					WHERE Partij.Naam = @partijnaam);
+	DELETE FROM CoalitiePartij WHERE CoalitieID = @coalitieID AND PartijID = @partijID;
+END;

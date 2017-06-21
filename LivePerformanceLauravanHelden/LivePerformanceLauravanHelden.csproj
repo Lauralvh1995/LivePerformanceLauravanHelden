@@ -67,6 +67,7 @@
     <Compile Include="DAL\Contexts\ResultsContext.cs" />
     <Compile Include="DAL\DatabaseConnection\IDatabaseConnector.cs" />
     <Compile Include="DAL\DatabaseConnection\SQLServerConnector.cs" />
+    <Compile Include="DAL\Extensions\IDbCommandExtension.cs" />
     <Compile Include="DAL\Repositories\CoalitionRepository.cs" />
     <Compile Include="DAL\Repositories\ElectionRepository.cs" />
     <Compile Include="DAL\Repositories\IRepository.cs" />
