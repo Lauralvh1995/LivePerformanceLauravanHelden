@@ -16,7 +16,7 @@ namespace LivePerformanceLauravanHelden.DAL.Repositories
         public PartyRepository(IDatabaseConnector connector)
         {
             _context = new PartyContext(connector);
-            Items = new List<Party>();
+            Items = _context.Read();
         }
         public void Add(Party t)
         {

@@ -1,4 +1,7 @@
-﻿using LivePerformanceLauravanHelden.Forms;
+﻿using LivePerformanceLauravanHelden.DAL;
+using LivePerformanceLauravanHelden.DAL.DatabaseConnection;
+using LivePerformanceLauravanHelden.DAL.Repositories;
+using LivePerformanceLauravanHelden.Forms;
 using LivePerformanceLauravanHelden.Models;
 using System;
 using System.Collections.Generic;
@@ -18,21 +21,47 @@ namespace LivePerformanceLauravanHelden
         public Results results;
         public Coalition coalition;
 
+        private IDatabaseConnector _connector;
+        private PartyRepository _partyRepo;
+        private ElectionRepository _electionRepo;
+        private ResultsRepository _resultsRepo;
+        private CoalitionRepository _coalitionRepo;
+
         private List<string> partyInfo = new List<string>();
 
         public FormationTool()
         {
             InitializeComponent();
+            _connector = new SQLServerConnector();
+            _partyRepo = new PartyRepository(_connector);
+            _electionRepo = new ElectionRepository(_connector);
+            _coalitionRepo = new CoalitionRepository(_connector);
+            _resultsRepo = new ResultsRepository(_connector);
+
             TK2017 = new Election("Tweede Kamerverkiezingen 2017", 150);
             results = new Results("Resultaten " + TK2017.Name, TK2017);
             coalition = new Coalition("", "");
+
+            _partyRepo.Refresh();
+            results.ParticipatingParties = _partyRepo.Items;
+
             UpdateCListbox();
-            lbAmSeats.Text = coalition.Seats.ToString();
         }
 
         private void btCreateFormation_Click(object sender, EventArgs e)
         {
-            OverviewForm overview = new OverviewForm(coalition);
+            if (coalition.CoalitionParties.Count() == 0)
+            {
+                MessageBox.Show("U heeft geen partijen geselecteerd. ");
+            }
+            else
+            {
+                OverviewForm overview = new OverviewForm(coalition);
+                overview.Results = results;
+                overview.Election = TK2017;
+
+                overview.ShowDialog();
+            }
         }
 
         private void btResults_Click(object sender, EventArgs e)
@@ -149,8 +178,10 @@ namespace LivePerformanceLauravanHelden
                 {
                     lbIsMajority.Text = "Nee";
                 }
+                lbAmSeats.Text = coalition.Seats.ToString();
             }
             ));
+            
         }
 
         public Party GetPartyByName(string entry)

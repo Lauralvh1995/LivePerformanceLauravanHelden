@@ -44,7 +44,26 @@ namespace LivePerformanceLauravanHelden.DAL.Contexts
 
         public List<Party> Read()
         {
-            throw new NotImplementedException();
+            List<Party> party = new List<Party>();
+            Party p = null;
+
+            IDbCommand command = _connector.CreateCommand();
+            command.CommandText = "SELECT [Naam], [Lijsttrekker], [AantalLeden], [Stemmen], [Zetels] FROM Partij JOIN PartijUitslag ON Partij.ID = PartijUitslag.PartijID";
+
+            using (IDataReader reader = _connector.ExecuteReader(command))
+            {
+                while (reader.Read())
+                {
+                    p = new Party() {Name = reader.GetString(0),
+                        PartyLeader = reader.GetString(1),
+                        AmountOfMembers = reader.GetInt32(2),
+                        Votes = reader.GetInt32(3),
+                        Seats = reader.GetInt32(4)};
+                    party.Add(p);
+                }
+            }
+
+            return party;
         }
 
         public void Update(Party t)

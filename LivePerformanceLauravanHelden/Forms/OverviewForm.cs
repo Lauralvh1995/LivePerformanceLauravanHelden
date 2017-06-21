@@ -1,4 +1,7 @@
-﻿using LivePerformanceLauravanHelden.Models;
+﻿using LivePerformanceLauravanHelden.DAL;
+using LivePerformanceLauravanHelden.DAL.DatabaseConnection;
+using LivePerformanceLauravanHelden.DAL.Repositories;
+using LivePerformanceLauravanHelden.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,36 +16,43 @@ namespace LivePerformanceLauravanHelden.Forms
 {
     public partial class OverviewForm : Form
     {
-        public Coalition coalition { get; set; }
-        public Election election { get; set; }
-        public Results results { get; set; }
+        public Coalition Coalition { get; set; }
+        public Election Election { get; set; }
+        public Results Results { get; set; }
         string PrimeMinister { get; set; }
+
+        private IDatabaseConnector _connector;
+        private CoalitionRepository _coalitionRepo;
 
         public OverviewForm(Coalition coalition)
         {
+            _connector = new SQLServerConnector();
+            _coalitionRepo = new CoalitionRepository(_connector);
+            Coalition = coalition;
             GetPrimeMinister(coalition);
             InitializeComponent();
         }
 
         private void btSaveCoalition_Click(object sender, EventArgs e)
         {
-            coalition.Name = tbCoalitionName.Text;
-            coalition.PrimeMinister = PrimeMinister;
+            Coalition.Name = tbCoalitionName.Text;
+            Coalition.PrimeMinister = PrimeMinister;
+            _coalitionRepo.Add(Coalition);
         }
 
         private void btExport_Click(object sender, EventArgs e)
         {
-            string[] export = {@"Coalitievoorstel "+election.Name,
+            string[] export = {@"Coalitievoorstel "+Election.Name,
                                 "=============================",
                                 "",
                                 "Van: Tjeerd Willink",
                                 "Aan: Z.M. Koning Willem-Alexander: Majesteit",
                                 "Partij     "+"Zetels       "+"Lijsttrekker     ",
-                                PrintParties(coalition).ToString(),
-                                "Totaal aantal Zetels: "+ coalition.Seats+" Premier: "+coalition.PrimeMinister
+                                PrintParties(Coalition).ToString(),
+                                "Totaal aantal Zetels: "+ Coalition.Seats+" Premier: "+Coalition.PrimeMinister
             };
             using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"C:\Users\laura\Documents\School\Live Performance\LivePerformanceLauravanHelden\Exports\"+coalition.Name))
+            new System.IO.StreamWriter(@"C:\Users\laura\Documents\School\Live Performance\LivePerformanceLauravanHelden\Exports\"+Coalition.Name+".txt"))
             {
                 foreach (string line in export)
                 {

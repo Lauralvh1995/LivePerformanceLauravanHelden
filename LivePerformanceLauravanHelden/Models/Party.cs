@@ -15,6 +15,11 @@ namespace LivePerformanceLauravanHelden.Models
         public int Seats { get; set; }
         public bool InPower { get; set; }
 
+        public Party()
+        {
+
+        }
+
         public Party(string name, string partyLeader, int members)
         {
             Name = name;
@@ -29,7 +34,19 @@ namespace LivePerformanceLauravanHelden.Models
 
         public int CompareTo(object obj)
         {
-            return Seats.CompareTo(obj);
+            Party p = (Party)obj;
+            if(this.Seats < p.Seats)
+            {
+                return 1;
+            }
+            else if(this.Seats == p.Seats)
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
