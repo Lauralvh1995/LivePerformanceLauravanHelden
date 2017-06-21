@@ -36,36 +36,33 @@ namespace LivePerformanceLauravanHelden
 
         private void btResults_Click(object sender, EventArgs e)
         {
-            Party p = null;
-            EditResultForm editResult = new EditResultForm();
-
-            foreach (string s in cLBParties.CheckedItems)
+            try
             {
-                if (cLBParties.CheckedItems.Count == 1)
+                Party p = null;
+                EditResultForm editResult = new EditResultForm();
+
+                foreach (Party party in results.ParticipatingParties)
                 {
-                    foreach (Party party in results.ParticipatingParties)
+                    if (GetPartyByName(cLBParties.SelectedItem.ToString()) == party)
                     {
-                        if (GetPartyByName(s) == party)
-                        {
-                            p = party;
-                        }
-                    }
-                    editResult.partyName = p.Name;
-                    editResult.votes = p.Votes;
-
-                    editResult.UpdateForm();
-
-                    editResult.ShowDialog();
-
-                    if (editResult.DialogResult == DialogResult.OK)
-                    {
-                        p.Votes = editResult.votes;
+                        p = party;
                     }
                 }
-                else
+                editResult.partyName = p.Name;
+                editResult.votes = p.Votes;
+
+                editResult.UpdateForm();
+
+                editResult.ShowDialog();
+
+                if (editResult.DialogResult == DialogResult.OK)
                 {
-                    MessageBox.Show("Er kan maar één partij tegelijk worden gewijzigd");
+                    p.Votes = editResult.votes;
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Selecteer een partij, alstublieft.");
             }
             UpdateCListbox();
         }
@@ -91,60 +88,59 @@ namespace LivePerformanceLauravanHelden
 
         private void btEditParty_Click(object sender, EventArgs e)
         {
-            Party p = null;
-            EditPartyForm editParty = new EditPartyForm();
-
-            foreach(string s in cLBParties.CheckedItems)
+            try
             {
-                if (cLBParties.CheckedItems.Count == 1)
+                Party p = null;
+                EditPartyForm editParty = new EditPartyForm();
+
+                foreach (Party party in results.ParticipatingParties)
                 {
-                    foreach (Party party in results.ParticipatingParties)
+                    if (GetPartyByName(cLBParties.SelectedItem.ToString()) == party)
                     {
-                        if (GetPartyByName(s) == party)
-                        {
-                            p = party;
-                        }
-                    }
-                    editParty.partyName = p.Name;
-                    editParty.partyLeader = p.PartyLeader;
-                    editParty.amMembers = p.AmountOfMembers;
-
-                    editParty.UpdateForm();
-
-                    editParty.ShowDialog();
-
-                    if (editParty.DialogResult == DialogResult.OK)
-                    {
-                        p.Name = editParty.partyName;
-                        p.PartyLeader = editParty.partyLeader;
-                        p.AmountOfMembers = editParty.amMembers;
+                        p = party;
                     }
                 }
-                else
+                editParty.partyName = p.Name;
+                editParty.partyLeader = p.PartyLeader;
+                editParty.amMembers = p.AmountOfMembers;
+
+                editParty.UpdateForm();
+
+                editParty.ShowDialog();
+
+                if (editParty.DialogResult == DialogResult.OK)
                 {
-                    MessageBox.Show("Er kan maar één partij tegelijk worden gewijzigd");
+                    p.Name = editParty.partyName;
+                    p.PartyLeader = editParty.partyLeader;
+                    p.AmountOfMembers = editParty.amMembers;
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Selecteer een partij, alstublieft.");
             }
             UpdateCListbox();
         }
 
         private void cLBParties_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            foreach (string i in cLBParties.CheckedItems)
+            this.BeginInvoke(new Action(() =>
             {
-                if (e.NewValue == CheckState.Checked)
+                coalition.CoalitionParties.Clear();
+                foreach (string i in cLBParties.CheckedItems.OfType<string>().ToList())
                 {
-                    coalition.CoalitionParties.Add(GetPartyByName(i));
-                }
-                else if (e.NewValue == CheckState.Unchecked)
-                {
-                    coalition.CoalitionParties.Remove(GetPartyByName(i));
-                    foreach (Party p in coalition.CoalitionParties)
+                    if (e.NewValue == CheckState.Checked)
                     {
-                        coalition.Seats = coalition.Seats + p.Seats;
+                        coalition.CoalitionParties.Add(GetPartyByName(i));
                     }
+
                 }
-                if(coalition.Seats >= TK2017.Majority)
+                coalition.Seats = 0;
+                foreach (Party p in coalition.CoalitionParties)
+                {
+                    coalition.Seats = coalition.Seats + p.Seats;
+                }
+                if (coalition.Seats >= TK2017.Majority)
                 {
                     lbIsMajority.Text = "Ja";
                 }
@@ -153,7 +149,7 @@ namespace LivePerformanceLauravanHelden
                     lbIsMajority.Text = "Nee";
                 }
             }
-            UpdateCListbox();
+            ));
         }
 
         public Party GetPartyByName(string entry)
@@ -183,6 +179,6 @@ namespace LivePerformanceLauravanHelden
             }
         }
 
-        
+
     }
 }

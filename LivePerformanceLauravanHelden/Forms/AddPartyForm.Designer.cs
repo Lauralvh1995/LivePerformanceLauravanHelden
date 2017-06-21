@@ -82,6 +82,11 @@
             // nudAmMembers
             // 
             this.nudAmMembers.Location = new System.Drawing.Point(142, 81);
+            this.nudAmMembers.Maximum = new decimal(new int[] {
+            -451317370,
+            61627445,
+            0,
+            0});
             this.nudAmMembers.Name = "nudAmMembers";
             this.nudAmMembers.Size = new System.Drawing.Size(120, 22);
             this.nudAmMembers.TabIndex = 5;

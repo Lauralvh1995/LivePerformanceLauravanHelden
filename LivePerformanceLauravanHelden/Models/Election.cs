@@ -22,8 +22,8 @@ namespace LivePerformanceLauravanHelden.Models
 
         private int CalculateMajority(int seats)
         {
-            int i = seats/2+1;
-            return i;
+            double i = seats/2+1;
+            return (int)i;
         }
     }
 }

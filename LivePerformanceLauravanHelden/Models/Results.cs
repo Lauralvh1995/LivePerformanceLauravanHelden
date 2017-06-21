@@ -25,12 +25,14 @@ namespace LivePerformanceLauravanHelden.Models
             CalculateTotalVotes();
             foreach(Party p in ParticipatingParties)
             {
-                p.Seats = p.Votes / TotalVotes * Election.Seats;
+                decimal partialseats = Election.Seats * decimal.Divide(p.Votes, TotalVotes);
+                p.Seats = Convert.ToInt32(partialseats);
             }
         }
 
         private void CalculateTotalVotes()
         {
+            TotalVotes = 0;
             foreach(Party p in ParticipatingParties)
             {
                 TotalVotes = TotalVotes + p.Votes;

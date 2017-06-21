@@ -159,7 +159,6 @@
             // 
             // cLBParties
             // 
-            this.cLBParties.CheckOnClick = true;
             this.cLBParties.FormattingEnabled = true;
             this.cLBParties.Location = new System.Drawing.Point(7, 56);
             this.cLBParties.Name = "cLBParties";

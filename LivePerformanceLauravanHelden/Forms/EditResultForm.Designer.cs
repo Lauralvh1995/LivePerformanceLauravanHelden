@@ -49,6 +49,11 @@
             // nudVotes
             // 
             this.nudVotes.Location = new System.Drawing.Point(133, 29);
+            this.nudVotes.Maximum = new decimal(new int[] {
+            -451317370,
+            61627445,
+            0,
+            0});
             this.nudVotes.Name = "nudVotes";
             this.nudVotes.Size = new System.Drawing.Size(272, 22);
             this.nudVotes.TabIndex = 19;
