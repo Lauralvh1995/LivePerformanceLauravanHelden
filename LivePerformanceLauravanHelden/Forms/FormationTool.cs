@@ -34,14 +34,45 @@ namespace LivePerformanceLauravanHelden
 
         }
 
-        private void btNewResults_Click(object sender, EventArgs e)
+        private void btResults_Click(object sender, EventArgs e)
         {
+            Party p = null;
+            EditResultForm editResult = new EditResultForm();
 
+            foreach (string s in cLBParties.CheckedItems)
+            {
+                if (cLBParties.CheckedItems.Count == 1)
+                {
+                    foreach (Party party in results.ParticipatingParties)
+                    {
+                        if (GetPartyByName(s) == party)
+                        {
+                            p = party;
+                        }
+                    }
+                    editResult.partyName = p.Name;
+                    editResult.votes = p.Votes;
+
+                    editResult.UpdateForm();
+
+                    editResult.ShowDialog();
+
+                    if (editResult.DialogResult == DialogResult.OK)
+                    {
+                        p.Votes = editResult.votes;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Er kan maar één partij tegelijk worden gewijzigd");
+                }
+            }
+            UpdateCListbox();
         }
-
-        private void btEditResults_Click(object sender, EventArgs e)
+        private void btCalculateSeats_Click(object sender, EventArgs e)
         {
-
+            results.CalculateSeats();
+            UpdateCListbox();
         }
 
         private void btAddParty_Click(object sender, EventArgs e)
@@ -122,6 +153,7 @@ namespace LivePerformanceLauravanHelden
                     lbIsMajority.Text = "Nee";
                 }
             }
+            UpdateCListbox();
         }
 
         public Party GetPartyByName(string entry)
@@ -150,5 +182,7 @@ namespace LivePerformanceLauravanHelden
                 cLBParties.Items.Add(s);
             }
         }
+
+        
     }
 }

@@ -31,7 +31,17 @@ namespace LivePerformanceLauravanHelden.DAL.Contexts
 
         public void Delete(Coalition t)
         {
-            throw new NotImplementedException();
+            IDbCommand command = _connector.CreateCommand();
+
+            command.CommandText = "DELETE FROM [CoalitiePartij] WHERE [CoalitieID] = (SELECT ID FROM Coalitie WHERE Naam=@naam)";
+            command.AddParameterWithValue("naam", t.Name);
+
+            _connector.ExecuteNonQuery(command);
+
+            command.CommandText = "DELETE FROM [Coalitie] WHERE [Naam]=@naam";
+            command.AddParameterWithValue("naam", t.Name);
+
+            _connector.ExecuteNonQuery(command);
         }
 
         public List<Coalition> Read(int userid)

@@ -73,6 +73,12 @@
     <Compile Include="DAL\Repositories\IRepository.cs" />
     <Compile Include="DAL\Repositories\PartyRepository.cs" />
     <Compile Include="DAL\Repositories\ResultsRepository.cs" />
+    <Compile Include="Forms\EditResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditResultForm.Designer.cs">
+      <DependentUpon>EditResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPartyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,26 +114,20 @@
     <Compile Include="Models\Results.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\ResultsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ResultsForm.Designer.cs">
-      <DependentUpon>ResultsForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\AddPartyForm.resx">
       <DependentUpon>AddPartyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditPartyForm.resx">
       <DependentUpon>EditPartyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditResultForm.resx">
+      <DependentUpon>EditResultForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormationTool.resx">
       <DependentUpon>FormationTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Overview.resx">
       <DependentUpon>Overview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ResultsForm.resx">
-      <DependentUpon>ResultsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

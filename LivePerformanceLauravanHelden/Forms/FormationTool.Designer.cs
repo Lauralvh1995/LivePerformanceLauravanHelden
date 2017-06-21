@@ -41,8 +41,8 @@
             this.lbSeats = new System.Windows.Forms.Label();
             this.cLBParties = new System.Windows.Forms.CheckedListBox();
             this.btEditParty = new System.Windows.Forms.Button();
-            this.btNewResults = new System.Windows.Forms.Button();
-            this.btEditResults = new System.Windows.Forms.Button();
+            this.btResults = new System.Windows.Forms.Button();
+            this.btCalculateSeats = new System.Windows.Forms.Button();
             this.gbParties.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,11 +78,11 @@
             // lbVotes
             // 
             this.lbVotes.AutoSize = true;
-            this.lbVotes.Location = new System.Drawing.Point(269, 39);
+            this.lbVotes.Location = new System.Drawing.Point(161, 36);
             this.lbVotes.Name = "lbVotes";
-            this.lbVotes.Size = new System.Drawing.Size(71, 17);
+            this.lbVotes.Size = new System.Drawing.Size(67, 17);
             this.lbVotes.TabIndex = 9;
-            this.lbVotes.Text = "Stemmen:";
+            this.lbVotes.Text = "Stemmen";
             // 
             // lbIsMajority
             // 
@@ -105,7 +105,7 @@
             // lbPartySeats
             // 
             this.lbPartySeats.AutoSize = true;
-            this.lbPartySeats.Location = new System.Drawing.Point(466, 40);
+            this.lbPartySeats.Location = new System.Drawing.Point(228, 36);
             this.lbPartySeats.Name = "lbPartySeats";
             this.lbPartySeats.Size = new System.Drawing.Size(47, 17);
             this.lbPartySeats.TabIndex = 6;
@@ -123,7 +123,7 @@
             // lbParty
             // 
             this.lbParty.AutoSize = true;
-            this.lbParty.Location = new System.Drawing.Point(26, 36);
+            this.lbParty.Location = new System.Drawing.Point(32, 36);
             this.lbParty.Name = "lbParty";
             this.lbParty.Size = new System.Drawing.Size(40, 17);
             this.lbParty.TabIndex = 4;
@@ -177,33 +177,33 @@
             this.btEditParty.UseVisualStyleBackColor = true;
             this.btEditParty.Click += new System.EventHandler(this.btEditParty_Click);
             // 
-            // btNewResults
+            // btResults
             // 
-            this.btNewResults.Location = new System.Drawing.Point(575, 12);
-            this.btNewResults.Name = "btNewResults";
-            this.btNewResults.Size = new System.Drawing.Size(126, 57);
-            this.btNewResults.TabIndex = 3;
-            this.btNewResults.Text = "Nieuwe Uitslag";
-            this.btNewResults.UseVisualStyleBackColor = true;
-            this.btNewResults.Click += new System.EventHandler(this.btNewResults_Click);
+            this.btResults.Location = new System.Drawing.Point(575, 13);
+            this.btResults.Name = "btResults";
+            this.btResults.Size = new System.Drawing.Size(126, 57);
+            this.btResults.TabIndex = 4;
+            this.btResults.Text = "Uitslag";
+            this.btResults.UseVisualStyleBackColor = true;
+            this.btResults.Click += new System.EventHandler(this.btResults_Click);
             // 
-            // btEditResults
+            // btCalculateSeats
             // 
-            this.btEditResults.Location = new System.Drawing.Point(575, 75);
-            this.btEditResults.Name = "btEditResults";
-            this.btEditResults.Size = new System.Drawing.Size(126, 57);
-            this.btEditResults.TabIndex = 4;
-            this.btEditResults.Text = "Uitslag Wijzigen";
-            this.btEditResults.UseVisualStyleBackColor = true;
-            this.btEditResults.Click += new System.EventHandler(this.btEditResults_Click);
+            this.btCalculateSeats.Location = new System.Drawing.Point(575, 76);
+            this.btCalculateSeats.Name = "btCalculateSeats";
+            this.btCalculateSeats.Size = new System.Drawing.Size(126, 57);
+            this.btCalculateSeats.TabIndex = 5;
+            this.btCalculateSeats.Text = "Bereken Zetels";
+            this.btCalculateSeats.UseVisualStyleBackColor = true;
+            this.btCalculateSeats.Click += new System.EventHandler(this.btCalculateSeats_Click);
             // 
             // FormationTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 432);
-            this.Controls.Add(this.btEditResults);
-            this.Controls.Add(this.btNewResults);
+            this.Controls.Add(this.btCalculateSeats);
+            this.Controls.Add(this.btResults);
             this.Controls.Add(this.btEditParty);
             this.Controls.Add(this.gbParties);
             this.Controls.Add(this.btAddParty);
@@ -230,8 +230,8 @@
         private System.Windows.Forms.Label lbIsMajority;
         private System.Windows.Forms.Label lbMajority;
         private System.Windows.Forms.Label lbVotes;
-        private System.Windows.Forms.Button btNewResults;
-        private System.Windows.Forms.Button btEditResults;
+        private System.Windows.Forms.Button btResults;
+        private System.Windows.Forms.Button btCalculateSeats;
     }
 }
 
